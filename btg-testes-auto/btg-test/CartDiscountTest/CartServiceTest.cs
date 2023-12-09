@@ -21,7 +21,7 @@ namespace btg_test.CartDiscountTest
         }
 
         [Fact]
-        public void ProcessOrder_QuantityLowerThanStockUpdateSucess_ReturnTrue()
+        public void ProcessCart_Cart_Return270()
         {
             // Arrange
             CartItem cartItem = new()
