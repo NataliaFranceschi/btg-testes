@@ -61,7 +61,7 @@ namespace btg_test.PlaylistSongTest
         }
 
         [Fact]
-        public void ProcessPlaylistValidation_AddSongsToPlaylistWithSpace_ReturnTrue()
+        public void ProcessPlaylistValidation_AddSongsToPlaylistWithSpace()
         {
             List<Song> songs = new List<Song>() { song1, song2 };
 
@@ -78,7 +78,7 @@ namespace btg_test.PlaylistSongTest
         }
 
         [Fact]
-        public void ProcessPlaylistValidation_AddSongsFullPlaylist_ReturnFalse()
+        public void ProcessPlaylistValidation_AddSongsPlaylist2EmptySpace()
         {
             List<Song> songs = new List<Song>() { song1, song2, song3 };
 
@@ -96,6 +96,24 @@ namespace btg_test.PlaylistSongTest
             _mockPlaylistValidationService.Received(3).CanAddSongToPlaylist(playlist, Arg.Any<Song>());
             playlist.Songs.Should().Contain(song1);
             playlist.Songs.Should().Contain(song2);
+            playlist.Songs.Should().NotContain(song3);
+        }
+
+        [Fact]
+        public void ProcessPlaylistValidation_AddSongsFullPlaylist()
+        {
+            List<Song> songs = new List<Song>() { song2, song3 };
+
+            Playlist playlist = new Playlist() { MaxSongs = 1, Songs = new List<Song>() { song1} };
+
+            _mockPlaylistValidationService.CanAddSongToPlaylist(playlist, Arg.Any<Song>())
+                .Returns(false);
+
+            _sut.AddSongsToPlaylist(playlist, songs);
+
+            _mockPlaylistValidationService.Received(2).CanAddSongToPlaylist(playlist, Arg.Any<Song>());
+            playlist.Songs.Should().Contain(song1);
+            playlist.Songs.Should().NotContain(song2);
             playlist.Songs.Should().NotContain(song3);
         }
 
