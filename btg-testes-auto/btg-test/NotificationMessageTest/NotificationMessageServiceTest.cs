@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace btg_test.NotificationMessageTest
 {
-    public class NotificationServiceTest
+    public class NotificationMessageServiceTest
     {
-        public readonly IMessageService _mockMessageService;
-        public readonly NotificationService _sut;
+        private readonly IMessageService _mockMessageService;
+        private readonly NotificationMessageService _sut;
 
-        public NotificationServiceTest()
+        public NotificationMessageServiceTest()
         {
             _mockMessageService = Substitute.For<IMessageService>();
-            _sut = new NotificationService(_mockMessageService);
+            _sut = new NotificationMessageService(_mockMessageService);
         }
 
         [Fact]
