@@ -21,7 +21,7 @@ namespace btg_test.ClientDiscountTest
         }
 
         [Fact]
-        public void ProcessDiscount_CustomerPremium_Return180()
+        public void GetDiscount_CustomerPremium_ReturnPriceWith10PercentOff()
         {
             _mockCustomerService.GetCustomerType(1)
                 .Returns(CustomerType.Premium);
@@ -33,7 +33,7 @@ namespace btg_test.ClientDiscountTest
         }
 
         [Fact]
-        public void ProcessDiscount_CustomerRegular_Return190()
+        public void GetDiscount_CustomerRegular_ReturnPriceWith5PercentOff()
         {
             _mockCustomerService.GetCustomerType(1)
                 .Returns(CustomerType.Regular);
@@ -45,7 +45,7 @@ namespace btg_test.ClientDiscountTest
         }
 
         [Fact]
-        public void ProcessDiscount_CustomerUnknown_Return200()
+        public void GetDiscount_CustomerUnknown_ReturnFullPrice()
         {
             _mockCustomerService.GetCustomerType(1)
                 .Returns(default(CustomerType));

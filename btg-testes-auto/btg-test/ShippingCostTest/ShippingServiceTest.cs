@@ -21,7 +21,7 @@ namespace btg_test.ShippingCostTest
         }
 
         [Fact]
-        public void ProcessDeliveryCost_DistanceGreaterThan200DeliveryTypeExpress_Return50()
+        public void CalculateShippingCost_DistanceGreaterThan200DeliveryTypeExpress_Cost50PercentOff()
         {
             var cost = _mockDeliveryCostCalculator.CalculateCost(220, DeliveryType.Express)
                 .Returns(100);
@@ -33,7 +33,7 @@ namespace btg_test.ShippingCostTest
         }
 
         [Fact]
-        public void ProcessDeliveryCost_DistanceLessThan200DeliveryTypeExpress_Return100()
+        public void CalculateShippingCost_DistanceLessThan200DeliveryTypeExpress_ReturnNormalCost()
         {
             var cost = _mockDeliveryCostCalculator.CalculateCost(180, DeliveryType.Express)
                 .Returns(100);
@@ -45,7 +45,7 @@ namespace btg_test.ShippingCostTest
         }
 
         [Fact]
-        public void ProcessDeliveryCost_DistanceGreaterThan200DeliveryTypeOrdinary_Return100()
+        public void CalculateShippingCost_DistanceGreaterThan200DeliveryTypeOrdinary_ReturnNormalCost()
         {
             var cost = _mockDeliveryCostCalculator.CalculateCost(220, DeliveryType.Ordinary)
                 .Returns(100);
@@ -57,7 +57,7 @@ namespace btg_test.ShippingCostTest
         }
 
         [Fact]
-        public void ProcessDeliveryCost_DistanceLessThan200DeliveryTypeOrdinary_Return100()
+        public void CalculateShippingCost_DistanceLessThan200DeliveryTypeOrdinary_ReturnNormalCost()
         {
             var cost = _mockDeliveryCostCalculator.CalculateCost(220, DeliveryType.Ordinary)
                 .Returns(100);

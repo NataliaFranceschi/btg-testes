@@ -18,7 +18,7 @@ namespace btg_test
 
 
         [Fact(DisplayName = "MostoristasDisponiveis")]
-        public void DefinirDisponibilidadeMotorista_DoisMotoristasDisponiveis_RetornaNomesMotoristas()
+        public void EncontrarMotoristas_DoisMotoristasDisponiveis_RetornaNomesMotoristas()
         {
             List<Pessoa> pessoas = new() { pessoa1, pessoa2, pessoa3, pessoa4 };
             Motorista motorista = new Motorista();
@@ -32,7 +32,7 @@ namespace btg_test
 
 
         [Fact(DisplayName = "MostoristasDisponiveis")]
-        public void DefinirDisponibilidadeMotorista_MaisDeDoisMotoristasDisponiveis_RetornaNomesDoisPrimeirosMotoristas()
+        public void EncontrarMotoristas_MaisDeDoisMotoristasDisponiveis_RetornaNomesDoisPrimeirosMotoristas()
         {
             List<Pessoa> pessoas = new() { pessoa1, pessoa6, pessoa3, pessoa4, pessoa2 };
             Motorista motorista = new Motorista();
@@ -46,7 +46,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "ViagemNaoRealizada")]
-        public void DefinirDisponibilidadeMotorista_NenhumMotoristaDisponivel_RetornaErro()
+        public void EncontrarMotoristas_NenhumMotoristaDisponivel_RetornaErro()
         {
             List<Pessoa> pessoas = new() { pessoa2, pessoa3, pessoa5 };
             Motorista motorista = new Motorista();
@@ -56,7 +56,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "ViagemNaoRealizada")]
-        public void DefinirDisponibilidadeMotorista_UmMotoristaDisponivel_RetornaErro()
+        public void EncontrarMotoristas_UmMotoristaDisponivel_RetornaErro()
         {
             List<Pessoa> pessoas = new() { pessoa1, pessoa2, pessoa3, pessoa5 };
             Motorista motorista = new Motorista();

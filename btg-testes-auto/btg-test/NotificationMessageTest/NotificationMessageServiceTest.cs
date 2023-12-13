@@ -21,7 +21,7 @@ namespace btg_test.NotificationMessageTest
         }
 
         [Fact]
-        public void ProcessNotification_AllMessageSend_ReturnTrue()
+        public void NotifyUsers_AllMessageSend_ReturnTrue()
         {
             Notification notification = new Notification() { Message = "test", UserId = "1"};
             List<Notification> notifications = new() { notification, notification };
@@ -36,7 +36,7 @@ namespace btg_test.NotificationMessageTest
         }
 
         [Fact]
-        public void ProcessNotification_MessageNotSend_ReturnFalse()
+        public void NotifyUsers_MessageNotSent_ReturnFalse()
         {
             Notification notification1 = new Notification() { Message = "test", UserId = "1" };
             Notification notification2 = new Notification() { Message = "test", UserId = "2" };

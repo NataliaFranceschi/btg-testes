@@ -21,9 +21,8 @@ namespace btg_test.CartDiscountTest
         }
 
         [Fact]
-        public void ProcessCart_Cart_Return270()
+        public void CalculateTotalWithDiscount_CartPrice300_ReturnPriceWithDiscount()
         {
-            // Arrange
             CartItem cartItem = new()
             {
                 ProductId = "1",
@@ -37,7 +36,6 @@ namespace btg_test.CartDiscountTest
 
             double result = _sut.CalculateTotalWithDiscount(cart);
 
-            // Assert
             result.Equals(270);
             _mockDiscountService.Received().CalculateDiscount(cart);
         }

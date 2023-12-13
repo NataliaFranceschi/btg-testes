@@ -25,7 +25,7 @@ namespace btg_test.PlaylistSongTest
         Song song3 = new Song() { Artist = "artist3", Title = "title3" };
 
         [Fact]
-        public void ProcessPlaylistValidation_AddSongToPlaylistWithSpace_ReturnTrue()
+        public void AddSongToPlaylist_PlaylistWithSpace_ReturnTrue()
         {
             List<Song> list = new List<Song>() { song1, song2 };
             Playlist playlist = new Playlist() { MaxSongs = 3, Songs = list };
@@ -43,7 +43,7 @@ namespace btg_test.PlaylistSongTest
         }
 
         [Fact]
-        public void ProcessPlaylistValidation_AddSongFullPlaylist_ReturnFalse()
+        public void AddSongToPlaylist_FullPlaylist_ReturnFalse()
         {
             List<Song> list = new List<Song>() { song1, song2 };
             Playlist playlist = new Playlist() { MaxSongs = 2, Songs = list };
@@ -61,7 +61,7 @@ namespace btg_test.PlaylistSongTest
         }
 
         [Fact]
-        public void ProcessPlaylistValidation_AddSongsToPlaylistWithSpace()
+        public void AddSongsToPlaylist_PlaylistWithSpace_AllSongsAdded()
         {
             List<Song> songs = new List<Song>() { song1, song2 };
 
@@ -78,7 +78,7 @@ namespace btg_test.PlaylistSongTest
         }
 
         [Fact]
-        public void ProcessPlaylistValidation_AddSongsPlaylist2EmptySpace()
+        public void AddSongsToPlaylist_Playlist2EmptySpace_2of3SongsAdded()
         {
             List<Song> songs = new List<Song>() { song1, song2, song3 };
 
@@ -100,7 +100,7 @@ namespace btg_test.PlaylistSongTest
         }
 
         [Fact]
-        public void ProcessPlaylistValidation_AddSongsFullPlaylist()
+        public void AddSongsToPlaylist_FullPlaylist_NoSongsWereAdded()
         {
             List<Song> songs = new List<Song>() { song2, song3 };
 

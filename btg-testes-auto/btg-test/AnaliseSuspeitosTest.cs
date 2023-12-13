@@ -13,7 +13,7 @@ namespace btg_test
         [InlineData(true, false, false, false, false)]
         [InlineData(false, false, false, false, false)]
         [InlineData(false, false, true, false, false)]
-        public void AnaliseDoSuspeito_ZeroOuUmaRespostaPositiva_RetornaInocente(bool telefonouVitima, bool esteveNoLocal, bool moraPerto, bool devedor, bool trabalhaComVitima)
+        public void ExecutarQuestionarioSuspeito_ZeroOuUmaRespostaPositiva_RetornaInocente(bool telefonouVitima, bool esteveNoLocal, bool moraPerto, bool devedor, bool trabalhaComVitima)
         {
             AnaliseSuspeitos analiseSuspeitos = new AnaliseSuspeitos();
             string retorno = analiseSuspeitos.ExecutarQuestionarioSuspeito(telefonouVitima, esteveNoLocal, moraPerto, devedor, trabalhaComVitima);
@@ -25,7 +25,7 @@ namespace btg_test
         [InlineData(true, true, false, false, false)]
         [InlineData(false, true, true, false, false)]
         [InlineData(false, false, true, false, true)]
-        public void AnaliseDoSuspeito_DuasRespostaPositiva_RetornaSuspeita(bool telefonouVitima, bool esteveNoLocal, bool moraPerto, bool devedor, bool trabalhaComVitima)
+        public void ExecutarQuestionarioSuspeito_DuasRespostaPositiva_RetornaSuspeita(bool telefonouVitima, bool esteveNoLocal, bool moraPerto, bool devedor, bool trabalhaComVitima)
         {
             AnaliseSuspeitos analiseSuspeitos = new AnaliseSuspeitos();
             string retorno = analiseSuspeitos.ExecutarQuestionarioSuspeito(telefonouVitima, esteveNoLocal, moraPerto, devedor, trabalhaComVitima);
@@ -37,7 +37,7 @@ namespace btg_test
         [InlineData(true, true, true, false, false)]
         [InlineData(false, true, true, true, true)]
         [InlineData(false, false, true, true, true)]
-        public void AnaliseDoSuspeito_TresOuQuatroRespostaPositiva_RetornaCumplice(bool telefonouVitima, bool esteveNoLocal, bool moraPerto, bool devedor, bool trabalhaComVitima)
+        public void ExecutarQuestionarioSuspeito_TresOuQuatroRespostaPositiva_RetornaCumplice(bool telefonouVitima, bool esteveNoLocal, bool moraPerto, bool devedor, bool trabalhaComVitima)
         {
             AnaliseSuspeitos analiseSuspeitos = new AnaliseSuspeitos();
             string retorno = analiseSuspeitos.ExecutarQuestionarioSuspeito(telefonouVitima, esteveNoLocal, moraPerto, devedor, trabalhaComVitima);
@@ -48,7 +48,7 @@ namespace btg_test
         [Theory(DisplayName = "5 respostas positivas")]
         [InlineData(true, true, true, true, true)]
 
-        public void AnaliseDoSuspeito_TresOuQuatroRespostaPositiva_RetornaAssassino(bool telefonouVitima, bool esteveNoLocal, bool moraPerto, bool devedor, bool trabalhaComVitima)
+        public void ExecutarQuestionarioSuspeito_TresOuQuatroRespostaPositiva_RetornaAssassino(bool telefonouVitima, bool esteveNoLocal, bool moraPerto, bool devedor, bool trabalhaComVitima)
         {
             AnaliseSuspeitos analiseSuspeitos = new AnaliseSuspeitos();
             string retorno = analiseSuspeitos.ExecutarQuestionarioSuspeito(telefonouVitima, esteveNoLocal, moraPerto, devedor, trabalhaComVitima);

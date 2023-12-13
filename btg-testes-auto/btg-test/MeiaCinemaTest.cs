@@ -10,7 +10,7 @@ namespace btg_test
     public class MeiaCinemaTest
     {
         [Fact(DisplayName = "Estudante")]
-        public void DefinirSePagaMeia_Estudante_RetornaTrue()
+        public void VerificarMeiaCinema_Estudante_RetornaTrue()
         {
             MeiaCinema meiaCinema = new MeiaCinema();
             bool retorno = meiaCinema.VerificarMeiaCinema(true, false, false, false);
@@ -19,7 +19,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "DoadorDeSangue")]
-        public void DefinirSePagaMeia_DoadorDeSangue_RetornaTrue()
+        public void VerificarMeiaCinema_DoadorDeSangue_RetornaTrue()
         {
             MeiaCinema meiaCinema = new MeiaCinema();
             bool retorno = meiaCinema.VerificarMeiaCinema(false, true, false, false);
@@ -28,7 +28,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "TrabalhadorPrefeitura")]
-        public void DefinirSePagaMeia_TrabalhadorPrefeitura_RetornaFalse()
+        public void VerificarMeiaCinema_TrabalhadorPrefeitura_RetornaFalse()
         {
             MeiaCinema meiaCinema = new MeiaCinema();
             bool retorno = meiaCinema.VerificarMeiaCinema(false, false, true, false);
@@ -38,7 +38,7 @@ namespace btg_test
 
 
         [Fact(DisplayName = "ContratoPrefeitura")]
-        public void DefinirSePagaMeia_ContratoPrefeitura_RetornaFalse()
+        public void VerificarMeiaCinema_ContratoPrefeitura_RetornaFalse()
         {
             MeiaCinema meiaCinema = new MeiaCinema();
             bool retorno = meiaCinema.VerificarMeiaCinema(false, false, false, true);
@@ -47,7 +47,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "TrabalhadorPrefeituraEContratoPrefeitura")]
-        public void DefinirSePagaMeia_TrabalhadorPrefeituraEContratoPrefeitura_RetornaTrue()
+        public void VerificarMeiaCinema_TrabalhadorPrefeituraEContratoPrefeitura_RetornaTrue()
         {
             MeiaCinema meiaCinema = new MeiaCinema();
             bool retorno = meiaCinema.VerificarMeiaCinema(false, false, true, true);
@@ -56,7 +56,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "PessoaComum")]
-        public void DefinirSePagaMeia_PessoaComum_RetornaFalse()
+        public void VerificarMeiaCinema_PessoaComum_RetornaFalse()
         {
             MeiaCinema meiaCinema = new MeiaCinema();
             bool retorno = meiaCinema.VerificarMeiaCinema(false, false, false, false);

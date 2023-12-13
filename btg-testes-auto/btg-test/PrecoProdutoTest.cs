@@ -19,7 +19,7 @@ namespace btg_test
         * Se o estado digitado não for válido, estoure uma exception.
         */
         [Fact(DisplayName = "Imposto MG")]
-        public void RetornarPrecoComImposto_EstadoMG_Retorna107()
+        public void ImpostoProduto_EstadoMG_RetornaPrecoMais7Porcento()
         {
             PrecoProduto precoProduto = new(100, "MG");
             decimal resultado = precoProduto.ImpostoProduto();
@@ -27,7 +27,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Imposto SP")]
-        public void RetornarPrecoComImposto_EstadoSP_Retorna112()
+        public void ImpostoProduto_EstadoSP_RetornaPrecoMais12Porcento()
         {
             PrecoProduto precoProduto = new(100, "SP");
             decimal resultado = precoProduto.ImpostoProduto();
@@ -35,7 +35,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Imposto RJ")]
-        public void RetornarPrecoComImposto_EstadoRJ_Retorna115()
+        public void ImpostoProduto_EstadoRJ_RetornaPrecoMais15Porcento()
         {
             PrecoProduto precoProduto = new(100, "RJ");
             decimal resultado = precoProduto.ImpostoProduto();
@@ -43,7 +43,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Imposto MS")]
-        public void RetornarPrecoComImposto_EstadoMS_Retorna108()
+        public void ImpostoProduto_EstadoMS_RetornaPrecoMais8Porcento()
         {
             PrecoProduto precoProduto = new(100, "MS");
             decimal resultado = precoProduto.ImpostoProduto();
@@ -51,7 +51,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Imposto ES")]
-        public void RetornarPrecoComImposto_EstadoES_Retorna112()
+        public void ImpostoProduto_EstadoES_RetornaPrecoMais12Porcento()
         {
             PrecoProduto precoProduto = new(100, "ES");
             decimal resultado = precoProduto.ImpostoProduto();
@@ -59,7 +59,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Imposto SC")]
-        public void RetornarPrecoComImposto_EstadoSC_Retorna118()
+        public void ImpostoProduto_EstadoSC_RetornaPrecoMais18Porcento()
         {
             PrecoProduto precoProduto = new(100, "SC");
             decimal resultado = precoProduto.ImpostoProduto();
@@ -67,7 +67,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Imposto PR")]
-        public void RetornarPrecoComImposto_EstadoPR_RetornaErro()
+        public void ImpostoProduto_EstadoPR_RetornaErro()
         {
             PrecoProduto precoProduto = new(100, "PR");
             Action resultado = () => precoProduto.ImpostoProduto();

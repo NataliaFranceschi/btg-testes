@@ -23,7 +23,7 @@ namespace btg_test.NotificationEmailTest
         }
 
         [Fact]
-        public void ProcessEmailNotification_EmptyMessage_ReturnFalse()
+        public void SendNotification_EmptyMessage_ReturnFalse()
         {
             bool result = _sut.SendNotification("recipient", "");
 
@@ -32,7 +32,7 @@ namespace btg_test.NotificationEmailTest
         }
 
         [Fact]
-        public void ProcessEmailNotification_MessageNull_ReturnFalse()
+        public void SendNotification_MessageNull_ReturnFalse()
         {
             bool result = _sut.SendNotification("recipient", null);
 
@@ -41,7 +41,7 @@ namespace btg_test.NotificationEmailTest
         }
 
         [Fact]
-        public void ProcessEmailNotification_ValidParamters_ReturnTrue()
+        public void SendNotification_ValidParamters_ReturnTrue()
         {
             _mockEmailService.SendEmail("recipient", "Notification", "message")
                 .Returns(true);
@@ -53,7 +53,7 @@ namespace btg_test.NotificationEmailTest
         }
 
         [Fact]
-        public void ProcessEmailNotification_ReturnFalse()
+        public void SendNotification_ThrowError_ReturnFalse()
         {
             _mockEmailService.SendEmail(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>())
                 .Throws(new Exception());

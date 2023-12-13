@@ -10,7 +10,7 @@ namespace btg_test
     public class LucroTest
     {
         [Fact(DisplayName = "Produto valor menor que 20")]
-        public void DefinirLucro_ProdutoValorMenorQue20_RetornaLucro()
+        public void Calcular_ProdutoValorMenorQue20_RetornaLucro45Porcento()
         {
             Lucro lucro = new Lucro();
             decimal retorno = lucro.Calcular(10);
@@ -19,7 +19,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Produto valor igual a 20")]
-        public void DefinirLucro_ProdutoValorIgual20_RetornaLucro()
+        public void Calcular_ProdutoValorIgual20_RetornaLucro30Porcento()
         {
             Lucro lucro = new Lucro();
             decimal retorno = lucro.Calcular(20);
@@ -28,7 +28,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Produto valor maior que 20")]
-        public void DefinirLucro_ProdutoValorMaiorQue20_RetornaLucro()
+        public void Calcular_ProdutoValorMaiorQue20_RetornaLucro30Porcento()
         {
             Lucro lucro = new Lucro();
             decimal retorno = lucro.Calcular(30);

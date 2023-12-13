@@ -12,7 +12,7 @@ namespace btg_test
         Voo voo = new Voo("Boing146", "A1370", new DateTime(2023, 12, 15, 14, 30, 0));
 
         [Fact(DisplayName = "Vagas Disponiveis Voo vazio")]
-        public void DefinirQuantidadeVagasDisponivel_VooVazio_Retorna100()
+        public void QuantidadeVagasDisponivel_VooVazio_Retorna100()
         {
             int retorno = voo.QuantidadeVagasDisponivel();
 
@@ -20,7 +20,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Vagas Disponiveis com dois Assentos Ocupados ")]
-        public void DefinirQuantidadeVagasDisponivel_2AssentosOcupados_Retorna98()
+        public void QuantidadeVagasDisponivel_2AssentosOcupados_Retorna98()
         {
             voo.OcupaAssento(33);
             voo.OcupaAssento(75);
@@ -30,7 +30,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Vagas Disponiveis com Voo Cheio ")]
-        public void DefinirQuantidadeVagasDisponivel_VooCheio_Retorna0()
+        public void QuantidadeVagasDisponivel_VooCheio_Retorna0()
         {
             for (int i = 1; i <= 100; i++)
             {
@@ -42,7 +42,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Proximo Livre Voo vazio")]
-        public void DefinirProximoLivre_VooVazio_Retorna1()
+        public void ProximoLivre_VooVazio_Retorna1()
         {
             int retorno = voo.ProximoLivre();
 
@@ -50,7 +50,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Proximo Livre Primeiro Assento Ocupado")]
-        public void DefinirProximoLivre_PrimeiroAssentoOcupado_Retorna2()
+        public void ProximoLivre_PrimeiroAssentoOcupado_Retorna2()
         {
             voo.OcupaAssento(1);
             int retorno = voo.ProximoLivre();
@@ -59,7 +59,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Proximo Assento Livre Voo Cheio")]
-        public void DefinirProximoLivre_VooCheio_Retorna0()
+        public void ProximoLivre_VooCheio_Retorna0()
         {
             for (int i = 1; i <= 100; i++)
             {
@@ -71,7 +71,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Iformações do voo")]
-        public void DefinirInformacoesDoVoo_RetornaInformacoes()
+        public void ExibeInformacoesVoo_RetornaInformacoes()
         {
             string retorno = voo.ExibeInformacoesVoo();
 
@@ -81,7 +81,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Assento disponivel voo vazio")]
-        public void DefinirDisponibilidadeAssento_Assento45VooVazio_RetornaTrue()
+        public void AssentoDisponivel_Assento45VooVazio_RetornaTrue()
         {
             bool retorno = voo.AssentoDisponivel(45);
 
@@ -89,7 +89,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Assento não disponível")]
-        public void DefinirDisponibilidadeAssento_Assento45_RetornaFalse()
+        public void AssentoDisponivel_Assento45Ocupado_RetornaFalse()
         {
             voo.OcupaAssento(45);
             bool retorno = voo.AssentoDisponivel(45);
@@ -98,7 +98,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Ocupa assento voo vazio")]
-        public void DefinirOcupacaoAssento_Acenco45VooVazio_RetornaTrue()
+        public void OcupaAssento_Assento45VooVazio_RetornaTrue()
         {
             bool retorno = voo.OcupaAssento(45);
 
@@ -106,7 +106,7 @@ namespace btg_test
         }
 
         [Fact(DisplayName = "Não Ocupa assento")]
-        public void DefinirOcupacaoAssento_Acento45Ocupado_RetornaFalse()
+        public void OcupaAssento_Acento45Ocupado_RetornaFalse()
         {
             voo.OcupaAssento(45);
             bool retorno = voo.OcupaAssento(45);
