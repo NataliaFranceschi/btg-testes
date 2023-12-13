@@ -1,5 +1,6 @@
 ﻿using btg_testes_auto.CartDiscount;
 using btg_testes_auto.Order;
+using FluentAssertions;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace btg_test.CartDiscountTest
 
             double result = _sut.CalculateTotalWithDiscount(cart);
 
-            result.Equals(270);
+            result.Should().Be(270);
             _mockDiscountService.Received().CalculateDiscount(cart);
         }
     }

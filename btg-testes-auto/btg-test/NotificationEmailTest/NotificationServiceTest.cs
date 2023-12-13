@@ -27,7 +27,7 @@ namespace btg_test.NotificationEmailTest
         {
             bool result = _sut.SendNotification("recipient", "");
 
-            result.Equals(false);
+            result.Should().BeFalse();
             _mockEmailService.Received(0).SendEmail("recipient", "Notification", "");
         }
 
@@ -36,7 +36,7 @@ namespace btg_test.NotificationEmailTest
         {
             bool result = _sut.SendNotification("recipient", null);
 
-            result.Equals(false);
+            result.Should().BeFalse();
             _mockEmailService.Received(0).SendEmail("recipient", "Notification", null);
         }
 
@@ -48,7 +48,7 @@ namespace btg_test.NotificationEmailTest
 
             bool result = _sut.SendNotification("recipient", "message");
 
-            result.Equals(true);
+            result.Should().BeTrue();
             _mockEmailService.Received(1).SendEmail("recipient", "Notification", "message");
         }
 
@@ -60,7 +60,7 @@ namespace btg_test.NotificationEmailTest
 
             bool result = _sut.SendNotification("recipient", "message");
 
-            result.Equals(false);
+            result.Should().BeFalse();
             _mockEmailService.Received(1).SendEmail("recipient", "Notification", "message");
 
         }

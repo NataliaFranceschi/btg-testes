@@ -1,5 +1,6 @@
 ﻿using btg_testes_auto.Discount;
 using btg_testes_auto.ShippingCost;
+using FluentAssertions;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace btg_test.ShippingCostTest
 
             double result = _sut.CalculateShippingCost(220, DeliveryType.Express);
 
-            result.Equals(50);
+            result.Should().Be(50);
             _mockDeliveryCostCalculator.Received().CalculateCost(220, DeliveryType.Express);
         }
 
@@ -40,7 +41,7 @@ namespace btg_test.ShippingCostTest
 
             double result = _sut.CalculateShippingCost(180, DeliveryType.Express);
 
-            result.Equals(100);
+            result.Should().Be(100);
             _mockDeliveryCostCalculator.Received().CalculateCost(180, DeliveryType.Express);
         }
 
@@ -52,7 +53,7 @@ namespace btg_test.ShippingCostTest
 
             double result = _sut.CalculateShippingCost(220, DeliveryType.Ordinary);
 
-            result.Equals(100);
+            result.Should().Be(100);
             _mockDeliveryCostCalculator.Received().CalculateCost(220, DeliveryType.Ordinary);
         }
 
@@ -64,7 +65,7 @@ namespace btg_test.ShippingCostTest
 
             double result = _sut.CalculateShippingCost(220, DeliveryType.Ordinary);
 
-            result.Equals(100);
+            result.Should().Be(100);
             _mockDeliveryCostCalculator.Received().CalculateCost(220, DeliveryType.Ordinary);
         }
     

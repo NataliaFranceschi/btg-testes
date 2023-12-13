@@ -1,5 +1,6 @@
 ﻿using btg_testes_auto.Discount;
 using btg_testes_auto.NotificationMessage;
+using FluentAssertions;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace btg_test.NotificationMessageTest
 
             bool result = _sut.NotifyUsers(notifications);
 
-            result.Equals(true);
+            result.Should().BeTrue();
             _mockMessageService.Received(2).SendMessage("1", "test");
         }
 
@@ -49,7 +50,7 @@ namespace btg_test.NotificationMessageTest
 
             bool result = _sut.NotifyUsers(notifications);
 
-            result.Equals(false);
+            result.Should().BeFalse();
             _mockMessageService.Received(1).SendMessage("1", "test");
             _mockMessageService.Received(1).SendMessage("2", "test");
         }
