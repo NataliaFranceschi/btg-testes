@@ -1,5 +1,6 @@
 ﻿using btg_testes_auto.CartDiscount;
 using btg_testes_auto.Discount;
+using FluentAssertions;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace btg_test.ClientDiscountTest
 
             double result = _sut.GetDiscount(1, 200);
 
-            result.Equals(180);
+            result.Should().Be(20);
             _mockCustomerService.Received().GetCustomerType(1);
         }
 
@@ -40,7 +41,7 @@ namespace btg_test.ClientDiscountTest
 
             double result = _sut.GetDiscount(1, 200);
 
-            result.Equals(190);
+            result.Should().Be(10);
             _mockCustomerService.Received().GetCustomerType(1);
         }
 
@@ -48,11 +49,11 @@ namespace btg_test.ClientDiscountTest
         public void GetDiscount_CustomerUnknown_ReturnFullPrice()
         {
             _mockCustomerService.GetCustomerType(1)
-                .Returns(default(CustomerType));
+                .Returns(CustomerType.NotClient);
 
             double result = _sut.GetDiscount(1, 200);
 
-            result.Equals(200);
+            result.Should().Be(0);
             _mockCustomerService.Received().GetCustomerType(1);
         }
     }
