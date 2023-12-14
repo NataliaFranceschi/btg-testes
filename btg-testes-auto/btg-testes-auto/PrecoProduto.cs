@@ -8,7 +8,7 @@ namespace btg_testes_auto
 {
     public class PrecoProduto
     {
-        public decimal Valor {  get; set; }
+        public decimal Valor { get; set; }
         public string Estado { get; set; }
 
         public PrecoProduto(decimal valor, string estado)
@@ -37,11 +37,10 @@ namespace btg_testes_auto
                     default:
                         throw new Exception("Estado inválido");
                 }
-            } catch (Exception)
+            }catch (Exception)
             {
                 throw;
-            }
-            
+            }      
         }
     }
 }
