@@ -1,4 +1,5 @@
 using btg_testes_auto;
+using FluentAssertions;
 using System;
 
 namespace btg_test
@@ -99,9 +100,8 @@ namespace btg_test
             
 
             Action resultado2 = () => calculadora.Dividir();
-            
-            Assert.Throws<Exception>(resultado2);
-  
+
+            resultado2.Should().Throw<Exception>().WithMessage("Mensagem exception");
         }
 
         /*
