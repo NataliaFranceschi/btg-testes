@@ -15,7 +15,7 @@ namespace btg_test
         Pessoa pessoa2 = new Pessoa() { Idade = 15, Nome = "José", PossuiHabilitaçãoB = false };
         Pessoa pessoa3 = new Pessoa() { Idade = 27, Nome = "Rafaela", PossuiHabilitaçãoB = false };
         Pessoa pessoa4 = new Pessoa() { Idade = 18, Nome = "Juliana", PossuiHabilitaçãoB = true };
-        Pessoa pessoa5 = new Pessoa() { Idade = 10, Nome = "Sandra", PossuiHabilitaçãoB = false };
+        Pessoa pessoa5 = new Pessoa() { Idade = 10, Nome = "Sandra", PossuiHabilitaçãoB = true };
         Pessoa pessoa6 = new Pessoa() { Idade = 30, Nome = "Raul", PossuiHabilitaçãoB = true };
 
 
