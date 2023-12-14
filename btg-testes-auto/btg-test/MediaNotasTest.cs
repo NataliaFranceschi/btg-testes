@@ -36,7 +36,7 @@ namespace btg_test
         }
 
         [Fact]
-        public void CalculaMedia_NotasInferiorA7ComRecuperacaoInsuficiente_RetornaAprovado()
+        public void CalculaMedia_NotasInferiorA7ComRecuperacaoInsuficiente_RetornaNaoAprovado()
         {
             // Arrange
             List<decimal> notas = new() { 7, 5, 8, 7 };
@@ -51,7 +51,7 @@ namespace btg_test
         }
 
         [Fact]
-        public void CalculaMedia_NotasInferiorA7SemRecuperacao_RetornaAprovado()
+        public void CalculaMedia_NotasInferiorA7SemRecuperacao_RetornaNaoAprovado()
         {
             // Arrange
             List<decimal> notas = new() { 7, 5, 8, 7 };
@@ -62,6 +62,37 @@ namespace btg_test
 
             // Assert
             Assert.Equal("Infelizmente você não foi aprovado na recuperação :(. Sua média é: 6,75", resultado);
+        }
+
+        [Fact]
+        public void CalculaMedia_NotasIgualA7SemRecuperacao_RetornaAprovado()
+        {
+            // Arrange
+            List<decimal> notas = new() { 6, 7, 8, 7 };
+            MediaNotas mediaNotas = new();
+
+            // Act
+            string resultado = mediaNotas.CalculaMedia(notas, null);
+
+            // Assert
+            Assert.Contains("Parabéns, você foi aprovado!", resultado);
+            Assert.Contains("7", resultado);
+        }
+
+        [Fact]
+        public void CalculaMedia_NotasInferiorA7ComRecuperacaoIgualA7_RetornaAprovado()
+        {
+            // Arrange
+            List<decimal> notas = new() { 7, 6, 5, 6 };
+            MediaNotas mediaNotas = new();
+            decimal notaRecuperacao = 8;
+
+            // Act
+            string resultado = mediaNotas.CalculaMedia(notas, notaRecuperacao);
+
+            // Assert
+            Assert.Contains("Parabéns! Você foi aprovado na recuperação!", resultado);
+            Assert.Contains("7", resultado);
         }
 
 
