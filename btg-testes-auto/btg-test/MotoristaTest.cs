@@ -1,4 +1,6 @@
 ﻿using btg_testes_auto;
+using FluentAssertions;
+using NSubstitute.ExceptionExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,7 @@ namespace btg_test
         Pessoa pessoa6 = new Pessoa() { Idade = 30, Nome = "Raul", PossuiHabilitaçãoB = true };
 
 
-        [Fact(DisplayName = "MostoristasDisponiveis")]
+        [Fact(DisplayName = "Mostoristas Disponíveis")]
         public void EncontrarMotoristas_DoisMotoristasDisponiveis_RetornaNomesMotoristas()
         {
             List<Pessoa> pessoas = new() { pessoa1, pessoa2, pessoa3, pessoa4 };
@@ -31,7 +33,7 @@ namespace btg_test
         }
 
 
-        [Fact(DisplayName = "MostoristasDisponiveis")]
+        [Fact(DisplayName = "Mostoristas Disponíveis")]
         public void EncontrarMotoristas_MaisDeDoisMotoristasDisponiveis_RetornaNomesDoisPrimeirosMotoristas()
         {
             List<Pessoa> pessoas = new() { pessoa1, pessoa6, pessoa3, pessoa4, pessoa2 };
@@ -45,7 +47,7 @@ namespace btg_test
             Assert.DoesNotContain("Juliana", resultado);
         }
 
-        [Fact(DisplayName = "ViagemNaoRealizada")]
+        [Fact(DisplayName = "Viagem Não Realizada")]
         public void EncontrarMotoristas_NenhumMotoristaDisponivel_RetornaErro()
         {
             List<Pessoa> pessoas = new() { pessoa2, pessoa3, pessoa5 };
@@ -55,14 +57,14 @@ namespace btg_test
             Assert.Throws<Exception>(resultado);
         }
 
-        [Fact(DisplayName = "ViagemNaoRealizada")]
+        [Fact(DisplayName = "Viagem Não Realizada")]
         public void EncontrarMotoristas_UmMotoristaDisponivel_RetornaErro()
         {
             List<Pessoa> pessoas = new() { pessoa1, pessoa2, pessoa3, pessoa5 };
             Motorista motorista = new Motorista();
             Action resultado = () => motorista.EncontrarMotoristas(pessoas);
 
-            Assert.Throws<Exception>(resultado);
+            resultado.Should().Throw<Exception>().WithMessage("A viagem não será realizada devido falta de motoristas!");
         }
     }    
     }
